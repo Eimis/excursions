@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'excursions',
+    # 3rd party libs:
+    'django_extensions',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE_CLASSES = [
