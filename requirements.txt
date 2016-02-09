@@ -1,0 +1,5 @@
+Django==1.9.2
+dropbox==5.2.1
+requests==2.9.1
+six==1.10.0
+urllib3==1.14
