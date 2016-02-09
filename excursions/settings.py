@@ -123,3 +123,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+################
+# API SETTINGS #
+################
+
+# DROPBOX_TOKEN = os.environ.get('DROPBOX_TOKEN', None)
+DROPBOX_TOKEN = 'k1D1j_6mFuoAAAAAAAABPnh_RPlCjfI2TK_pmH9PAUR2iEIIDaGJgHX8ozDFikWp'
+
+# path to the data files in Dropbox cloud. The files must be placed in the
+# root directory for this app in Dropbox cloud ('/Dropbox/Apps/excursions/')
+CITIES_REMOTE_DATA_FILE = '/city.csv'
+HOTELS_REMOTE_DATA_FILE = '/hotel.csv'
+
+# a location(directory name) in the server where remote files will be saved
+# after periodical update:
+LOCAL_DATA_LOCATION = os.path.join(BASE_DIR, 'data')
+
+# A full path to the file that will be saved locally:
+CITIES_LOCAL_DATA_FILE = os.path.join(
+    LOCAL_DATA_LOCATION,
+    # it's just file name with extension:
+    os.path.basename(CITIES_REMOTE_DATA_FILE),
+)
+HOTELS_LOCAL_DATA_FILE = os.path.join(
+    LOCAL_DATA_LOCATION,
+    os.path.basename(HOTELS_REMOTE_DATA_FILE),
+)
