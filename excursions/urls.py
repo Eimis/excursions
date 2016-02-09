@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from excursions.views import explore
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^explore/', explore, name='explore'),
 ]

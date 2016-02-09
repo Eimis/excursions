@@ -1,0 +1,27 @@
+div.wrapper {
+    height: 100vh;
+}
+
+div.main-box {
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 10%;
+    text-align: left;
+    padding: 2%;
+    border: 1px solid #c6c6c6;
+}
+
+div.main-box hr{
+    border-top: 1px solid #c6c6c6;
+}
+
+div.content-wrapper {
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+div.content-wrapper select {
+    margin-top: 10%;
+    margin-bottom: 5%;
+}

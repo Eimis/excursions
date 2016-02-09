@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load trans from i18n %}
+
+{% block content %}
+<div class="container">
+    <div class="row-fluid wrapper">
+        <div class="main-box">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {# City selection: #}
+                <div class="form-group content-wrapper">
+                    <label>{% trans 'Select city' %}</label>
+                    <select class="form-control" name = "{{ form.comparing_option.html_name }}">
+                    {% for city in cities %}
+                    <option value="{{ city.short_name }}">{{ city.full_name }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                {# Filtered out hotels: #}
+                <div class="form-group content-wrapper">
+                  <p class="hotels">Test hotel</p>
+                </div>
+                <!--<button type="submit" class="btn btn-default">Submit</button>-->
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
