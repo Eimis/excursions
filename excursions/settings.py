@@ -22,6 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'f8b1y=(i9e-+-2w)r3vr=f(x%ukka*y5buw2f+dxl_e7-2a-(y'
 
+# initial credentials for admin account that will be created automatically:
+# XXX: Do not forget to change this immediately via Django admin interface!
+ADMIN_USERNAME = 'admin'
+ADMIN_PASSWORD = 'demodemo'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
