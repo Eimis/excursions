@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # 3rd party libs:
     'django_extensions',
     'debug_toolbar',
+    'django_crontab',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -159,3 +160,12 @@ HOTELS_LOCAL_DATA_FILE = os.path.join(
     LOCAL_DATA_LOCATION,
     os.path.basename(HOTELS_REMOTE_DATA_FILE),
 )
+
+CRONJOBS = [
+    # update database with data from cloud each 24 hours:
+    (
+        '0 0 * * *',
+        'django.core.management.call_command',
+        ['update_database']
+    ),
+]
