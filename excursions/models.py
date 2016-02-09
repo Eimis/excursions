@@ -1,9 +1,13 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class City(models.Model):
     short_name = models.CharField(max_length=5)
     full_name = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = _('Cities')
 
 
 class Hotel(models.Model):
