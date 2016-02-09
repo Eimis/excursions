@@ -12,6 +12,11 @@ class City(models.Model):
     def __str__(self):
         return self.full_name
 
+    # this is required for ForeignKey serialization, see:
+    # https://docs.djangoproject.com/en/1.9/topics/serialization/#natural-keys
+    def natural_key(self):
+        return (self.full_name)
+
 
 class Hotel(models.Model):
     city = models.ForeignKey(City)

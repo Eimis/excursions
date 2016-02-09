@@ -7,12 +7,13 @@
 <div class="container">
     <div class="row-fluid wrapper">
         <div class="main-box">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST">
                 {% csrf_token %}
                 {# City selection: #}
                 <div class="form-group content-wrapper">
                     <label>{% trans 'Select city' %}</label>
-                    <select class="form-control" name = "{{ form.comparing_option.html_name }}">
+                    <select class="form-control city-select" name="city_short_name">
+                    <option value="" selected disabled>{% trans 'Select city' %}</option>
                     {% for city in cities %}
                     <option value="{{ city.short_name }}">{{ city.full_name }}</option>
                     {% endfor %}
@@ -20,11 +21,60 @@
                 </div>
                 {# Filtered out hotels: #}
                 <div class="form-group content-wrapper">
-                  <p class="hotels">Test hotel</p>
+                  <table class="table table-condensed table-striped hotels-table">
+                      <thead>
+                          <tr>
+                              <th>{% trans 'Short name' %}</th>
+                              <th>{% trans 'Full name' %}</th>
+                              <th>{% trans 'City' %}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <!--<tr>-->
+                              <!--<td>John</td>-->
+                              <!--<td>Doe</td>-->
+                              <!--<td>john@example.com</td>-->
+                          <!--</tr>-->
+                      </tbody>
+                  </table>
                 </div>
                 <!--<button type="submit" class="btn btn-default">Submit</button>-->
             </form>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+{# inline js is used here to avoid hardcoded URLs #}
+<script type="text/javascript">
+
+$('select.city-select').on('change', function(){
+    var form = $(this).parents('form');
+    var form_data = form.serialize();
+
+    $.ajax({
+        type: "POST",
+        url: "{% url 'get_city_hotels' %}",
+        data: form_data,
+        dataType: 'json',
+        success: function(response) {
+            rows = []
+            $.each(response, function(index, hotel) {
+                var row = '<tr>'
+                          + '<td>' + hotel['fields']['short_name'] + '</td>'
+                          + '<td>' + hotel['fields']['full_name'] + '</td>'
+                          + '<td>' + hotel['fields']['city'] + '</td>'
+                          + '</tr>'
+                rows.push(row)
+            });
+            $(".hotels-table tbody").hide().html(rows).fadeIn('fast');
+        },
+        error: function(errors) { // something went wrong
+            // console.log(errors)
+        },
+    });
+})
+
+</script>
 {% endblock %}

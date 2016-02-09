@@ -17,9 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from excursions.views import explore
+from excursions.views import get_city_hotels
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^explore/', explore, name='explore'),
+    url(r'^get_city_hotels/', get_city_hotels, name='get_city_hotels'),
 ]
