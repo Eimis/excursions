@@ -28,6 +28,6 @@ def get_city_hotels(request):
             hotels,
             use_natural_foreign_keys=True,
         )
-        return HttpResponse(response_data)
+        return HttpResponse(response_data, content_type='application/json')
     else:
         return HttpResponse(status=401)  # forbidden
