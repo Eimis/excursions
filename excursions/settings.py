@@ -162,6 +162,7 @@ HOTELS_LOCAL_DATA_FILE_PATH = os.path.join(
     os.path.basename(HOTELS_REMOTE_DATA_FILE_PATH),
 )
 
+# see: https://github.com/kraiz/django-crontab/blob/master/README.rst
 CRONJOBS = [
     # update database with data from cloud each 24 hours:
     (
