@@ -139,6 +139,7 @@ STATIC_URL = '/static/'
 # API SETTINGS #
 ################
 
+# for use in production, generate a new one and use this:
 # DROPBOX_TOKEN = os.environ.get('DROPBOX_TOKEN', None)
 DROPBOX_TOKEN = 'k1D1j_6mFuoAAAAAAAABPnh_RPlCjfI2TK_pmH9PAUR2iEIIDaGJgHX8ozDFikWp'
 

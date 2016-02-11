@@ -22,5 +22,5 @@ The project uses **Python 3.5.1** and **Django 1.9.2**
 
 ### Tests:
 
-Run `./manage.py test`
-Important: do not remove `test_*` csv files from the cloud, they're used for testing the api
+* Run `./manage.py test`
+* Important: do not remove `test_*` csv files from the cloud, they're used for testing the api
