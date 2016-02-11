@@ -15,20 +15,30 @@ import dropbox
 dbx = dropbox.Dropbox(settings.DROPBOX_TOKEN)
 
 
-def update_data_files():
-    """A function that updates data files from the cloud.
+def update_data_files(
+        CITIES_LOCAL_DATA_FILE_PATH,
+        HOTELS_LOCAL_DATA_FILE_PATH,
+        CITIES_REMOTE_DATA_FILE_PATH,
+        HOTELS_REMOTE_DATA_FILE_PATH
+        ):
+    """A function that updates data files from the cloud. The required
+    arguments are paths to where the file should be saved and paths to remote
+    locations of the files.
+    Note about remote file location: The files must be placed in the root
+    directory for this app in Dropbox cloud ('/Dropbox/Apps/excursions/'), the
+    path to the remote file at the root dir will the look like this: '/file.csv'
     """
     # Cities data file
     dropbox.Dropbox.files_download_to_file(
         dbx,
-        settings.CITIES_LOCAL_DATA_FILE_PATH,
-        settings.CITIES_REMOTE_DATA_FILE_PATH,
+        CITIES_LOCAL_DATA_FILE_PATH,  # local file path
+        CITIES_REMOTE_DATA_FILE_PATH,  # remote file path
     )
     # Hotels data file
     dropbox.Dropbox.files_download_to_file(
         dbx,
-        settings.HOTELS_LOCAL_DATA_FILE_PATH,
-        settings.HOTELS_REMOTE_DATA_FILE_PATH,
+        HOTELS_LOCAL_DATA_FILE_PATH,
+        HOTELS_REMOTE_DATA_FILE_PATH,
     )
 
 
@@ -117,7 +127,12 @@ def update_database():
     cronjob should manage this.
     """
     # download and replace old data files with new ones:
-    update_data_files()
+    update_data_files(
+        settings.CITIES_LOCAL_DATA_FILE_PATH,
+        settings.HOTELS_LOCAL_DATA_FILE_PATH,
+        settings.CITIES_REMOTE_DATA_FILE_PATH,
+        settings.HOTELS_REMOTE_DATA_FILE_PATH,
+    )
 
     # update the database with data from csv files:
     database_update_cities(settings.CITIES_LOCAL_DATA_FILE_PATH)
