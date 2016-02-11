@@ -12,7 +12,7 @@
                 {# City selection: #}
                 <div class="form-group content-wrapper">
                     <label>{% trans 'Select city' %}</label>
-                    <select class="form-control city-select" name="city_short_name">
+                    <select class="form-control city-select select2" name="city_short_name">
                     <option value="" selected disabled>{% trans 'Select city' %}</option>
                     {% for city in cities %}
                     <option value="{{ city.short_name }}">{{ city.full_name }}</option>
