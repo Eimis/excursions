@@ -21,7 +21,7 @@ from excursions.views import get_city_hotels
 
 
 urlpatterns = [
+    url(r'^$', explore, name='explore'),
     url(r'^admin/', admin.site.urls),
-    url(r'^explore/', explore, name='explore'),
     url(r'^get_city_hotels/', get_city_hotels, name='get_city_hotels'),
 ]
