@@ -137,6 +137,3 @@ def update_database():
     # update the database with data from csv files:
     database_update_cities(settings.CITIES_LOCAL_DATA_FILE_PATH)
     database_update_hotels(settings.HOTELS_LOCAL_DATA_FILE_PATH)
-
-
-# TODO: error logging
