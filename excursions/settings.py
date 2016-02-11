@@ -143,22 +143,22 @@ DROPBOX_TOKEN = 'k1D1j_6mFuoAAAAAAAABPnh_RPlCjfI2TK_pmH9PAUR2iEIIDaGJgHX8ozDFikW
 
 # path to the data files in Dropbox cloud. The files must be placed in the
 # root directory for this app in Dropbox cloud ('/Dropbox/Apps/excursions/')
-CITIES_REMOTE_DATA_FILE = '/city.csv'
-HOTELS_REMOTE_DATA_FILE = '/hotel.csv'
+CITIES_REMOTE_DATA_FILE_PATH = '/city.csv'
+HOTELS_REMOTE_DATA_FILE_PATH = '/hotel.csv'
 
 # a location(directory name) in the server where remote files will be saved
 # after periodical update:
 LOCAL_DATA_LOCATION = os.path.join(BASE_DIR, 'data')
 
 # A full path to the file that will be saved locally:
-CITIES_LOCAL_DATA_FILE = os.path.join(
+CITIES_LOCAL_DATA_FILE_PATH = os.path.join(
     LOCAL_DATA_LOCATION,
     # it's just file name with extension:
-    os.path.basename(CITIES_REMOTE_DATA_FILE),
+    os.path.basename(CITIES_REMOTE_DATA_FILE_PATH),
 )
-HOTELS_LOCAL_DATA_FILE = os.path.join(
+HOTELS_LOCAL_DATA_FILE_PATH = os.path.join(
     LOCAL_DATA_LOCATION,
-    os.path.basename(HOTELS_REMOTE_DATA_FILE),
+    os.path.basename(HOTELS_REMOTE_DATA_FILE_PATH),
 )
 
 CRONJOBS = [

@@ -21,14 +21,14 @@ def update_data_files():
     # Cities data file
     dropbox.Dropbox.files_download_to_file(
         dbx,
-        settings.CITIES_LOCAL_DATA_FILE,
-        settings.CITIES_REMOTE_DATA_FILE,
+        settings.CITIES_LOCAL_DATA_FILE_PATH,
+        settings.CITIES_REMOTE_DATA_FILE_PATH,
     )
     # Hotels data file
     dropbox.Dropbox.files_download_to_file(
         dbx,
-        settings.HOTELS_LOCAL_DATA_FILE,
-        settings.HOTELS_REMOTE_DATA_FILE,
+        settings.HOTELS_LOCAL_DATA_FILE_PATH,
+        settings.HOTELS_REMOTE_DATA_FILE_PATH,
     )
 
 
@@ -120,8 +120,8 @@ def update_database():
     update_data_files()
 
     # update the database with data from csv files:
-    database_update_cities(settings.CITIES_LOCAL_DATA_FILE)
-    database_update_hotels(settings.HOTELS_LOCAL_DATA_FILE)
+    database_update_cities(settings.CITIES_LOCAL_DATA_FILE_PATH)
+    database_update_hotels(settings.HOTELS_LOCAL_DATA_FILE_PATH)
 
 
 # TODO: error logging
