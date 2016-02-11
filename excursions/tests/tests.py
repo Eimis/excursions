@@ -39,10 +39,14 @@ class ExcursionsAppTestCase(WebTest):
         )
 
     def test_explore_page_status(self):
+        """Test main page http status
+        """
         response = self.app.get(reverse('explore'))
         self.assertEqual(response.status_code, 200)
 
     def test_filter_hotel_by_city(self):
+        """Test if hotels are filtered by the city correctly
+        """
         # We are testing the case of Hotel search in the 1st city:
         self.app.get(reverse('explore'))
         response = self.client.post(
