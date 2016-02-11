@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -169,3 +170,22 @@ CRONJOBS = [
         ['update_database']
     ),
 ]
+
+###############################
+# SETTINGS RELATED TO TESTING #
+###############################
+
+# Different variables for testing data file uodating from cloud:
+
+TEST_CITIES_REMOTE_DATA_FILE_PATH = '/test_city.csv'
+TEST_HOTELS_REMOTE_DATA_FILE_PATH = '/test_hotel.csv'
+
+TEST_CITIES_LOCAL_DATA_FILE_PATH = os.path.join(
+    os.path.join(PROJECT_ROOT, 'tests/test_data'),
+    # it's just file name with extension:
+    os.path.basename(TEST_CITIES_REMOTE_DATA_FILE_PATH),
+)
+TEST_HOTELS_LOCAL_DATA_FILE_PATH = os.path.join(
+    os.path.join(PROJECT_ROOT, 'tests/test_data'),
+    os.path.basename(TEST_HOTELS_REMOTE_DATA_FILE_PATH),
+)
