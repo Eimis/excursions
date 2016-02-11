@@ -9,11 +9,11 @@ The project uses **Python 3.5.1** and **Django 1.9.2**
 1. Clone the repo
 2. Manually create local Posgresql database and dbuser (see `settings.py`)
 3. Run `./manage.py migrate`
-⋅⋅* A superuser will be created, see `settings.py` for login credentials
-⋅⋅* Do not forget to change them once logged in to `http://localhost:8000/admin`
+  * A superuser will be created, see `settings.py` for login credentials
+  * Do not forget to change them once logged in to `http://localhost:8000/admin`
 4. Visit `http://localhost:8000/`
 5. Profit
 
 ### Tests:
 
-* run `./manage.py test`
+run `./manage.py test`
