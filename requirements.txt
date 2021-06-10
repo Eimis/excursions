@@ -1,7 +1,7 @@
 appnope==0.1.0
 beautifulsoup4==4.4.1
 decorator==4.0.9
-Django==1.9.2
+Django==2.2.24
 django-crontab==0.7.0
 django-debug-toolbar==1.4
 django-extensions==1.6.1
